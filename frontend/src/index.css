@@ -6,3 +6,20 @@ input:focus {
     box-shadow: 0;
     border: 0;
 }
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('/fonts/Satoshi-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('/fonts/Satoshi-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+  
+  

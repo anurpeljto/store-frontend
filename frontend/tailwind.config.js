@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Satoshi', 'sans-serif']
+      },
       colors: {
         'cream': '#f2f0ea',
         'blackTheme': '#010101',
