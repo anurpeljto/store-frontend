@@ -9,7 +9,7 @@ import { FaRegUser } from "react-icons/fa";
 
 function Navbar() {
   return (
-    <div className='flex flex-row justify-between items-center p-10 w-full'>
+    <div className='flex flex-row justify-between items-center w-full'>
       <div>
           <span className='sm:text-4xl text-3xl font-bold text-blackTheme'>Anur.</span>
           <span className='sm:text-4xl text-3xl font-extrabold text-grayTheme'>Peljto</span>
@@ -19,7 +19,9 @@ function Navbar() {
       
       <div className='sm:flex hidden flex-row gap-5 items-center justify-between'>
         <Cart/>
-        <FiHeart className='h-7 w-7'/>
+        <div className='flex flex-col'>
+          <FiHeart className='h-7 w-7'/>
+        </div>
         <FaRegUser className='h-7 w-7'/>
       </div>
 

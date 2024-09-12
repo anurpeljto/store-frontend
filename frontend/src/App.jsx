@@ -13,6 +13,7 @@ function App() {
     <MainLayout>
       <Routes>
         <Route path='/' element={HomePage} />
+        <Route path='/women' element={<HomePage category={'Test%20Category'}/> }/>
       </Routes>
     </MainLayout>
     </Router>
