@@ -56,7 +56,7 @@ const ProductPage = () => {
             {/* gallery here */}
             <Gallery/>
         {/* details here */}
-            <Details/>
+            <Details product={product}/>
         </div>
     </div>
   )
