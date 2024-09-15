@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage'
 import MainLayout from './layout/MainLayout'
 import { Provider } from 'react-redux';
 import store from './redux/store/store';
+import ProductPage from './pages/ProductPage';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,7 +17,8 @@ function App() {
       <MainLayout>
         <Routes>
           <Route path='/' element={<HomePage />} />
-          <Route path='/women' element={<HomePage category={'Test%20Category'}/> }/>
+          <Route path='/women' element={<HomePage category={'Women'}/> }/>
+          <Route path='/product' element={<ProductPage/>} />
         </Routes>
       </MainLayout>
       </Router>

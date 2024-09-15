@@ -31,7 +31,7 @@ const HomePage = ({category}) => {
     <div className='w-full h-full py-10 sm:grid flex flex-col gap-16 grid-cols-4'>
         {
           products.map((product, index) => 
-            <Product product={product}/>
+            <Product product={product} key={index}/>
           )
         }
     </div>
