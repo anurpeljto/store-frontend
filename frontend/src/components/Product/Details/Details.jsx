@@ -1,6 +1,6 @@
 import React from 'react'
 import { IoStarSharp } from "react-icons/io5";
-
+import AddToCart from './AddToCart';
 
 const Details = ({product}) => {
   return (
@@ -14,6 +14,7 @@ const Details = ({product}) => {
         <p>44 reviews</p>
       </div>
       <h1 className='text-3xl font-bold mt-10'>$99.99</h1>
+      <AddToCart product={product}/>
     </div>
   )
 }
