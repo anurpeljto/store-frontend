@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import store, {persistor} from './redux/store/store';
 import ProductPage from './pages/ProductPage';
 import { PersistGate } from 'redux-persist/integration/react';
+import CartPage from './pages/CartPage';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,6 +22,7 @@ function App() {
             <Route path='/' element={<HomePage />} />
             <Route path='/women' element={<HomePage category={'Women'}/> }/>
             <Route path='/product' element={<ProductPage/>} />
+            <Route path='/cart' element={<CartPage/>} />
           </Routes>
         </MainLayout>
         </Router>

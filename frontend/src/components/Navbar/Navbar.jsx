@@ -5,17 +5,22 @@ import Cart from './Cart'
 import HamburgerMenu from './HamburgerMenu'
 import { FiHeart } from "react-icons/fi";
 import { FaRegUser } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom'
 
 
-function Navbar() {
+function Navbar({ onSearchChange }) {
+  const navigate = useNavigate();
+  const handleHome = () => {
+    navigate('/');
+  }
   return (
     <div className='flex flex-row justify-between items-center w-full'>
-      <div>
+      <div onClick={handleHome} className='cursor-pointer'>
           <span className='sm:text-4xl text-3xl font-bold text-blackTheme'>Anur.</span>
           <span className='sm:text-4xl text-3xl font-extrabold text-grayTheme'>Peljto</span>
       </div>
 
-      <SearchBox/>
+      <SearchBox onSearchChange={onSearchChange}/>
       
       <div className='sm:flex hidden flex-row gap-5 items-center justify-between'>
         <Cart/>
