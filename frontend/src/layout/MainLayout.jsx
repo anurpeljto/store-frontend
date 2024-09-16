@@ -8,7 +8,7 @@ const MainLayout = ({children}) => {
   const visible = useSelector((state) => state.menu.menu);
 
   return (
-    <div className='sm:p-5'>
+    <div className='sm:p-5 w-full'>
         <Navbar/>
         <Categories/>
         <MobileMenu isVisible={visible}/>
