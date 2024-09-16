@@ -4,7 +4,7 @@ import { CiSquareMinus } from "react-icons/ci";
 import { increaseQuantity, decreaseQuantity } from '../../redux/cart/cartSlice';
 import { useDispatch } from 'react-redux';
 
-const CartListing = ({product, setPrice}) => {
+const CartListing = ({product}) => {
     const dispatch = useDispatch();
     const handleIncreaseQuantity = () => {
         dispatch(increaseQuantity({product}));
@@ -12,13 +12,9 @@ const CartListing = ({product, setPrice}) => {
     const handleDecreaseQuantity = () => {
         dispatch(decreaseQuantity({product}));
     }
-
-    useEffect(() => {
-        setPrice += total
-    }, [product.quantity])
-
-    const taxes = Number((10/100 * (product.quantity * 99.99)).toFixed(2))
-    const total = ((product.quantity*99.99) + taxes).toFixed(2);
+    const price = product.price.split('$')[1];
+    const taxes = Number((10/100 * (product.quantity * price)).toFixed(2))
+    const total = ((product.quantity*price) + taxes).toFixed(2);
   return (
     <div className='bg-cream grid grid-cols-2 grid-rows-auto sm:grid-flow-col items-top justify-between py-10 border-b-2 border-blackTheme sm:w-[900px]'>
         {/* image of product */}
@@ -42,7 +38,7 @@ const CartListing = ({product, setPrice}) => {
         </div>
 
         <div className='sm:grid hidden grid-cols-1 items-between justify-start col-start-3 gap-5 grid-flow-row w-[200px]'>
-                <span>{product.quantity} x <strong>$99.99</strong></span>
+                <span>{product.quantity} x <strong>{product.price}</strong></span>
                 <hr />
                 <span>Tax & PDV: ${taxes} </span>
                 <hr />

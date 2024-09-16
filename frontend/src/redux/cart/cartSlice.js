@@ -29,12 +29,15 @@ const cartSlice = createSlice({
             } else {
                 givenProduct.quantity -= 1;
             }
-        },
-        getTotalPrice: (state) => {
-            const totalPrice = state.products.map(product => (product.price * product.quantity));
-            return totalPrice;
         }
     }
 });
 export const {addToCart, increaseQuantity, decreaseQuantity} = cartSlice.actions;
 export const cart = cartSlice.reducer;
+
+export const getTotalPrice = (state) => {
+    return state.cart.products.reduce((total, product) => {
+        let price = product.price.split('$')[1];
+        return total + (price * product.quantity)
+    }, 0);
+}

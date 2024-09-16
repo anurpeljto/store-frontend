@@ -13,7 +13,7 @@ const Details = ({product}) => {
         <IoStarSharp fill='orange'/>
         <p>44 reviews</p>
       </div>
-      <h1 className='text-3xl font-bold sm:mt-10'>$99.99</h1>
+      <h1 className='text-3xl font-bold sm:mt-10'>{product.price}</h1>
       <AddToCart product={product}/>
     </div>
   )
