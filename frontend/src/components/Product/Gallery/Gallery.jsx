@@ -10,7 +10,7 @@ const Gallery = () => {
     ]
     const [mainImage, setMainImage] = useState(testImages[0]);
   return (
-    <div className='flex-1 flex flex-col items-center justify-center rounded-lg sm:max-w-[1024px] max-w-[400px]'>
+    <div className='flex-1 flex flex-col items-center justify-center rounded-lg sm:max-w-[1024px] max-w-[400px] sm:p-0 p-5'>
         <div className='bg-cream rounded-lg w-full h-full items-center justify-center flex p-5'>        
             <img src={mainImage} className='object-contain sm:h-[480px] h-[450px]'/>
         </div>

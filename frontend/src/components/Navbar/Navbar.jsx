@@ -14,7 +14,7 @@ function Navbar({ onSearchChange }) {
     navigate('/');
   }
   return (
-    <div className='flex flex-row justify-between items-center w-full'>
+    <div className='flex flex-row justify-between items-center w-full sm:p-0 p-5'>
       <div onClick={handleHome} className='cursor-pointer'>
           <span className='sm:text-4xl text-3xl font-bold text-blackTheme'>Anur.</span>
           <span className='sm:text-4xl text-3xl font-extrabold text-grayTheme'>Peljto</span>
