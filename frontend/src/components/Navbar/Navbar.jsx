@@ -7,12 +7,41 @@ import { FiHeart } from "react-icons/fi";
 import { FaRegUser } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom'
 import MobSearchBox from './MobSearchBox'
+import Cookies from 'js-cookie'
+import axios from 'axios'
 
+
+const checkAuth = async(navigate) => {
+  try {
+    const response = await axios({
+      url:'http://localhost:3000/api/v1/auth/check-auth',
+      method:'get',
+      withCredentials:true
+    });
+  
+    const {authenticated} = response.data;
+    if(authenticated) {
+      navigate('/profile')
+    } else {
+      navigate('/login');
+    }
+    return authenticated;
+  } catch (error) {
+    if(error) {
+      alert('Redirecting to login');
+      navigate('/login');
+    }
+  }
+}
 
 function Navbar({ onSearchChange }) {
   const navigate = useNavigate();
   const handleHome = () => {
     navigate('/');
+  }
+
+  const goToProfile = () => {
+    checkAuth(navigate);
   }
   return (
     <div className='flex flex-row justify-between sm:items-center items-start w-full sm:p-0 p-5'>
@@ -37,7 +66,7 @@ function Navbar({ onSearchChange }) {
         <div className='flex flex-col'>
           <FiHeart className='h-7 w-7'/>
         </div>
-        <FaRegUser className='h-7 w-7'/>
+        <FaRegUser onClick={goToProfile} className='cursor-pointer h-7 w-7'/>
       </div>
 
       <HamburgerMenu/>

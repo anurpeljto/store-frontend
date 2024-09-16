@@ -11,6 +11,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import CartPage from './pages/CartPage';
 import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
+import ProfilePage from './pages/ProfilePage';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -28,6 +29,7 @@ function App() {
             <Route path='/cart' element={<CartPage/>} />
             <Route path='/register' element={<RegisterPage/>}/>
             <Route path='/login' element={<LoginPage/>}/>
+            <Route path='/profile' element={<ProfilePage/>}></Route>
           </Routes>
         </MainLayout>
         </Router>
