@@ -29,6 +29,10 @@ const cartSlice = createSlice({
             } else {
                 givenProduct.quantity -= 1;
             }
+        },
+        getTotalPrice: (state) => {
+            const totalPrice = state.products.map(product => (product.price * product.quantity));
+            return totalPrice;
         }
     }
 });

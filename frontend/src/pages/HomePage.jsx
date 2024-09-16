@@ -1,39 +1,69 @@
 import axios from 'axios'
 import React, {useEffect, useState} from 'react'
 import Product from '../components/Product/Product';
+import { IoIosArrowRoundBack } from "react-icons/io";
+import { IoIosArrowRoundForward } from "react-icons/io";
 
-const fetchProducts = async (category) => {
+const fetchProducts = async (category, page) => {
   try {
     let url = 'http://localhost:3000/api/v1/products/';
     if (category) {
       url += `?category=${category}`;
     }
+    if(category && page) {
+      url += `&page=${page}`
+    }
+
+    if(page) {
+      url += `?page=${page}`
+    }
 
     const response = await axios.get(url);
-    return response.data.product;
+    const products = response.data.product;
+    const numOfPages = response.data.numOfPages;
+    return {products, numOfPages};
+
   } catch (error) {
     throw new Error('Unable to fetch', error);
   }
 };
 
+
 const HomePage = ({category}) => {
   const [products, setProducts] = useState([]);
+  const [page, setPage] = useState(1);
+  const [numOfPages, setNumOfPages] = useState(1);
   useEffect(() => {
     const loadProducts = async () => {
-      let fetchedProducts = await fetchProducts(category);
-      setProducts(fetchedProducts);
+      let {products, numOfPages} = await fetchProducts(category, page);
+      setProducts(products);
+      setNumOfPages(numOfPages);
     };
 
     loadProducts();
-  }, [category])
+  }, [category, page])
+
+  const handleIncreasePage = () => {
+    setPage(page+1);
+  }
+
+  const handleDecreasePage = () => {
+    setPage(page-1);
+  }
 
   return (
-    <div className='w-full h-full py-10 sm:grid flex flex-col gap-16 grid-cols-4'>
+    <div className='w-full h-full py-10 sm:px-0 px-10 sm:grid flex flex-col sm:gap-16 gap-5 grid-cols-4'>
         {
           products.map((product, index) => 
             <Product product={product} key={index}/>
           )
         }
+
+        <div className='col-span-4 flex items-center justify-center gap-5'>
+          <IoIosArrowRoundBack onClick={handleDecreasePage} className='w-8 h-8 cursor-pointer'/>
+          <span className='text-lg'>{page} of {numOfPages}</span>
+          <IoIosArrowRoundForward onClick={handleIncreasePage} className='w-8 h-8 cursor-pointer'/>
+          </div>
     </div>
   )
 }
