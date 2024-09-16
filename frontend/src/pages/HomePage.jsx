@@ -3,17 +3,23 @@ import React, {useEffect, useState} from 'react'
 import Product from '../components/Product/Product';
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { IoIosArrowRoundForward } from "react-icons/io";
+import { useSelector } from 'react-redux';
 
-const fetchProducts = async (category, page) => {
+const fetchProducts = async (category, page, search) => {
   try {
-    let url = 'http://localhost:3000/api/v1/products';
-    if(category && page) {
-      url += `?category=${category}&page=${page}`
+    let url = `http://localhost:3000/api/v1/products?`;
+
+    if (search) {
+      url += `search=${search}&`;
     }
-    else if (category) {
-      url += `?category=${category}`;
+    if (category) {
+      url += `category=${category}&`;
+    }
+    if (page) {
+      url += `page=${page}&`;
     }
     
+    url = url.endsWith('&') ? url.slice(0, -1) : url;
 
     const response = await axios.get(url);
     const products = response.data.product;
@@ -27,17 +33,18 @@ const fetchProducts = async (category, page) => {
 
 
 const HomePage = ({category}) => {
+  const searchTerm = useSelector((state) => state.search.searchTerm);
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
   const [numOfPages, setNumOfPages] = useState(1);
   useEffect(() => {
     const loadProducts = async () => {
-      let {products, numOfPages} = await fetchProducts(category, page);
+      let {products, numOfPages} = await fetchProducts(category, page, searchTerm);
       setProducts(products);
       setNumOfPages(numOfPages);
     };
     loadProducts();
-  }, [category, page])
+  }, [category, page, searchTerm])
 
   const handleIncreasePage = () => {
     setPage(page+1);
