@@ -6,17 +6,14 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 
 const fetchProducts = async (category, page) => {
   try {
-    let url = 'http://localhost:3000/api/v1/products/';
-    if (category) {
+    let url = 'http://localhost:3000/api/v1/products';
+    if(category && page) {
+      url += `?category=${category}&page=${page}`
+    }
+    else if (category) {
       url += `?category=${category}`;
     }
-    if(category && page) {
-      url += `&page=${page}`
-    }
-
-    if(page) {
-      url += `?page=${page}`
-    }
+    
 
     const response = await axios.get(url);
     const products = response.data.product;
@@ -39,7 +36,6 @@ const HomePage = ({category}) => {
       setProducts(products);
       setNumOfPages(numOfPages);
     };
-
     loadProducts();
   }, [category, page])
 
