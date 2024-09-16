@@ -55,7 +55,7 @@ const HomePage = ({category}) => {
   }
 
   return (
-    <div className='w-full h-full py-10 sm:px-0 px-10 sm:grid flex flex-col sm:gap-16 gap-5 grid-cols-4'>
+    <div className='w-full h-full py-10 sm:px-0 px-5 sm:grid flex flex-col sm:gap-16 gap-5 grid-cols-4'>
         {
           products.map((product, index) => 
             <Product product={product} key={index}/>

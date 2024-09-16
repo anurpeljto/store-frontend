@@ -45,8 +45,8 @@ const ProductPage = () => {
       const categoryLink = product.category.name;
 
   return (
-    <div className='w-full h-full flex flex-col mt-10 gap-10'>
-        <div className='flex items-center gap-3 justify-normal text-grayTheme col-span-2 h-[20px]'>
+    <div className='w-full h-full flex flex-col sm:mt-10 mt-20 sm:gap-10'>
+        <div className='flex items-center gap-3 justify-normal text-grayTheme col-span-2 h-[20px] sm:px-0 px-5'>
             <a href={categoryLink}>{product.category.name}</a>
             <FaArrowRightLong />
             <span>{product.name}</span>
