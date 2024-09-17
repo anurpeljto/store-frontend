@@ -9,7 +9,7 @@ const HamburgerMenu = () => {
     dispatch(toggleMenu());
   }
   return (
-    <div onClick={handleHamburger} className='sm:hidden block'>
+    <div onClick={handleHamburger} className='sm:hidden block absolute right-5 z-20'>
         <RxHamburgerMenu fill='black' className='h-9 w-9'/>
     </div>
   )

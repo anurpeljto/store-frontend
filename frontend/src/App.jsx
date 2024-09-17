@@ -12,6 +12,7 @@ import CartPage from './pages/CartPage';
 import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
+import CreateProductPage from './pages/CreateProductPage';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -30,6 +31,7 @@ function App() {
             <Route path='/register' element={<RegisterPage/>}/>
             <Route path='/login' element={<LoginPage/>}/>
             <Route path='/profile' element={<ProfilePage/>}></Route>
+            <Route path='/create' element={<CreateProductPage/>}></Route>
           </Routes>
         </MainLayout>
         </Router>
