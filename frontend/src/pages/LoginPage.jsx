@@ -16,8 +16,11 @@ const login = async(email, password, navigate) => {
     });
 
     const success = request.data.success;
+    const name = request.data.first_name;
+    localStorage.setItem('first_name', name);
+    console.log(request.data);
     if(success) {
-      navigate('/')
+      navigate('/profile')
     }
   } catch (error) {
     alert(error.response.data.message);
