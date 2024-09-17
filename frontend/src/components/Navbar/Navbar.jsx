@@ -44,7 +44,7 @@ function Navbar({ onSearchChange }) {
     checkAuth(navigate);
   }
   return (
-    <div className='flex flex-row justify-between sm:items-center items-start w-full sm:p-0 p-5'>
+    <div className='flex flex-row justify-between sm:items-center items-start w-full p-5'>
       <div onClick={handleHome} className='cursor-pointer sm:flex hidden'>
           <span className='sm:text-4xl text-3xl font-bold text-blackTheme'>Anur.</span>
           <span className='sm:text-4xl text-3xl font-extrabold text-grayTheme'>Peljto</span>
