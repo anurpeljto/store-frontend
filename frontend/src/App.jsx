@@ -24,8 +24,8 @@ function App() {
         <MainLayout>
           <Routes>
             <Route path='/' element={<HomePage />} />
-            <Route path='/women' element={<HomePage category={'Women'}/> }/>
-            <Route path='/men' element={<HomePage category={'Men'}/> }/>
+            <Route path='/women' element={<HomePage category={'66e2d33ada1ea24177058e10'}/> }/>
+            <Route path='/men' element={<HomePage category={'66e2d59b8b9d809527fef9de'}/> }/>
             <Route path='/product' element={<ProductPage/>} />
             <Route path='/cart' element={<CartPage/>} />
             <Route path='/register' element={<RegisterPage/>}/>

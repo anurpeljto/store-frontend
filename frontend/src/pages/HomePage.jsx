@@ -37,6 +37,7 @@ const HomePage = ({category}) => {
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
   const [numOfPages, setNumOfPages] = useState(1);
+  
   useEffect(() => {
     const loadProducts = async () => {
       let {products, numOfPages} = await fetchProducts(category, page, searchTerm);
@@ -47,11 +48,16 @@ const HomePage = ({category}) => {
   }, [category, page, searchTerm])
 
   const handleIncreasePage = () => {
-    setPage(page+1);
+    if(page < numOfPages){
+      setPage(page+1);
+    }
+
   }
 
   const handleDecreasePage = () => {
-    setPage(page-1);
+    if(page > 1) {
+      setPage(page-1);
+    }
   }
 
   if(products) {

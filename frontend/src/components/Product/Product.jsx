@@ -10,7 +10,7 @@ const Product = ({product}) => {
 
   return (
     <div onClick={handleNavigation} className='cursor-pointer sm:w-[320] sm:h-[400px] bg-cream rounded-lg flex flex-col items-center justify-center p-5'>
-        <img src='https://res.cloudinary.com/djlse3agg/image/upload/v1726168562/file-upload/tmp-2-1726168561491_ljsbmz.png' className='object-contai h-[250px]'/>
+        <img src={product.image} className='object-contai h-[250px]'/>
        <div className='flex justify-center items-center flex-col gap-2'>
         <p className='text-normal'>{product.name}</p>
         <span className='font-bold '>{product.price}</span>
