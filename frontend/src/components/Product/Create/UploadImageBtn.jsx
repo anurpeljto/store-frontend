@@ -3,22 +3,22 @@ import axios from 'axios'
 
 const uploadImage = async(data, onClickUploadImage) => {
     const formData = new FormData();
-    formData.append('image', data);
+    for(let i = 0; i < data.length; i++) {
+      formData.append('image', data[i]);
+    }
     const request = await axios({
         url:'http://localhost:3000/api/v1/upload',
         method: 'post',
         data: formData,
         withCredentials: true
     })
-
     const response = request.data;
-    const imgUrl = response.image.src;
-    console.log(response);
+    const image = response.image;
     if(response) {
         alert('Successfully uploaded image');
     }
-    onClickUploadImage(imgUrl);
-    return imgUrl;
+    onClickUploadImage(image);
+    return image;
 }
 
 const UploadImageBtn = ({onClick}) => {
@@ -29,11 +29,12 @@ const UploadImageBtn = ({onClick}) => {
       alert('Please select an image to upload');
       return;
     }
-    await uploadImage(image, onClick);
+    const imgUrls = await uploadImage(image, onClick);
+    onClick(imgUrls);
   }
   return (
     <div className='text-black flex flex-col gap-5 items-start justify-start rounded-lg'>
-        <input onChange={(e) => setImage(e.target.files[0])} type="file" className='block w-full'/>
+        <input multiple onChange={(e) => setImage(e.target.files)} type="file" className='block w-full'/>
         <span onClick={handleUpload} className='font-bold text-md cursor-pointer bg-white p-5 rounded-lg'>Upload Image</span>
     </div>
   )

@@ -7,10 +7,12 @@ const Product = ({product}) => {
   const handleNavigation = () => {
     navigate(`/product?id=${product._id}`);
   }
+  const images = product.image.map((image) => image.src);
+  console.log(product);
 
   return (
     <div onClick={handleNavigation} className='cursor-pointer sm:w-[320] sm:h-[400px] bg-cream rounded-lg flex flex-col items-center justify-center p-5'>
-        <img src={product.image} className='object-contai h-[250px]'/>
+        <img src={images[0]} className='object-contai h-[250px]'/>
        <div className='flex justify-center items-center flex-col gap-2'>
         <p className='text-normal'>{product.name}</p>
         <span className='font-bold '>{product.price}</span>

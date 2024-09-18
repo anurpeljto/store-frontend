@@ -54,7 +54,7 @@ const ProductPage = () => {
 
         <div className='flex sm:flex-row flex-col justify-between gap-10 items-start'>
             {/* gallery here */}
-            <Gallery/>
+            <Gallery product={product}/>
         {/* details here */}
             <Details product={product}/>
         </div>

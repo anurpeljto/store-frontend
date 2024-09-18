@@ -2,26 +2,32 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import UploadImageBtn from '../components/Product/Create/UploadImageBtn';
 import CreateProduct from '../components/Product/Create/CreateProduct';
+import { useNavigate } from 'react-router-dom';
 
 
-const fetchCategories = async() => {
-  const data = await axios({
-    url: 'http://localhost:3000/api/v1/category',
-    method:'get',
-    withCredentials: true
-  });
-
-  const results = data.data;
-  const categories = results.categories;
-  return categories;
+const fetchCategories = async(navigate) => {
+  try {
+    const data = await axios({
+      url: 'http://localhost:3000/api/v1/category',
+      method:'get',
+      withCredentials: true
+    });
+  
+    const results = data.data;
+    const categories = results.categories;
+    return categories;
+  } catch (error) {
+    alert('User not logged in!');
+    navigate('/login')
+  }
 }
 
 const CreateProductPage = () => {
   const [categories, setCategories] = useState([]);
-
+  const navigate = useNavigate();
   const [name, setName] = useState('');
   const [category, setCategory] = useState('');
-  const [imageURL, setImageURL] = useState('');
+  const [imageURL, setImageURL] = useState(null);
   const [price, setPrice] = useState('');
 
   const onClickUploadImage = (img) => {
@@ -31,12 +37,11 @@ const CreateProductPage = () => {
   useEffect(() => {
     try {
       const getCategories = async() => {
-        const cat = await fetchCategories();
+        const cat = await fetchCategories(navigate);
         setCategories(cat);
       }
       getCategories();
     } catch (error) {
-      
     }
   }, []);
   if(categories) {
@@ -68,7 +73,7 @@ const CreateProductPage = () => {
             </div>
 
             <div className='flex flex-col gap-2'>
-                <span className='font-bold text-lg'>Upload image</span>
+                <span className='font-bold text-lg'>Upload image(s)</span>
                 <UploadImageBtn onClick={onClickUploadImage}/>
             </div>
 

@@ -26,6 +26,7 @@ function App() {
             <Route path='/' element={<HomePage />} />
             <Route path='/women' element={<HomePage category={'66e2d33ada1ea24177058e10'}/> }/>
             <Route path='/men' element={<HomePage category={'66e2d59b8b9d809527fef9de'}/> }/>
+            <Route path='/kids' element={<HomePage category={'66e2d5a18b9d809527fef9e0'}/> }/>
             <Route path='/product' element={<ProductPage/>} />
             <Route path='/cart' element={<CartPage/>} />
             <Route path='/register' element={<RegisterPage/>}/>
