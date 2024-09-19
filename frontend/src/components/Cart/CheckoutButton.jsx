@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const CheckoutButton = () => {
     const handlePress = () => {
-        axios.get('http://localhost:3000/api/v1/checkout')
+        axios.get('https://full-store.onrender.com/api/v1/checkout')
     }
   return (
     <div onClick={handlePress} className='flex cursor-pointer gap-2 items-center justify-center bg-blackTheme h-[50px] sm:w-[300px] w-[150px] mt-2 rounded-lg'>

@@ -7,7 +7,7 @@ const login = async(email, password, navigate) => {
   try {
     const request = await axios({
       method:'post',
-      url: 'http://full-store.onrender.com/api/v1/auth/login',
+      url: 'https://full-store.onrender.com/api/v1/auth/login',
       data: {
         email: email,
         password: password

@@ -7,7 +7,7 @@ const uploadImage = async(data, onClickUploadImage) => {
       formData.append('image', data[i]);
     }
     const request = await axios({
-        url:'http://localhost:3000/api/v1/upload',
+        url:'https://full-store.onrender.com/api/v1/upload',
         method: 'post',
         data: formData,
         withCredentials: true

@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 const registerFunc = async(email, password, first_name, last_name, navigation) => {
     try {
         const result = await axios({
-            url: 'http://localhost:3000/api/v1/auth/register',
+            url: 'https://full-store.onrender.com/api/v1/auth/register',
             method:'post',
             withCredentials: true,
             data: {

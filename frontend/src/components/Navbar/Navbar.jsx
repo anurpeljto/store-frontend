@@ -14,7 +14,7 @@ import axios from 'axios'
 const checkAuth = async(navigate) => {
   try {
     const response = await axios({
-      url:'http://localhost:3000/api/v1/auth/check-auth',
+      url:'https://full-store.onrender.com/api/v1/auth/check-auth',
       method:'get',
       withCredentials:true
     });

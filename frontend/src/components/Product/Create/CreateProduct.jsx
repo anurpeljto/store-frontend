@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 const uploadProduct = async(name, category, image, price, navigate) => {
     const request = await axios({
-        url: 'http://localhost:3000/api/v1/products/',
+        url: 'https://full-store.onrender.com/api/v1/products/',
         method: 'post',
         data: {
             name,
