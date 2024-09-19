@@ -8,7 +8,6 @@ const Product = ({product}) => {
     navigate(`/product?id=${product._id}`);
   }
   const images = product.image.map((image) => image.src);
-  console.log(product);
 
   return (
     <div onClick={handleNavigation} className='cursor-pointer sm:w-[320] sm:h-[400px] bg-cream rounded-lg flex flex-col items-center justify-center p-5'>

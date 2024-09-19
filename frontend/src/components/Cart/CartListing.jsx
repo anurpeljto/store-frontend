@@ -21,7 +21,7 @@ const CartListing = ({product}) => {
         <div className='sm:grid flex flex-row grid-cols-2 grid-flow-col justify-between gap-10 w-full'>
 
             <div className='flex flex-row gap-5'>
-                <img src='https://res.cloudinary.com/djlse3agg/image/upload/v1726168562/file-upload/tmp-2-1726168561491_ljsbmz.png' className='object-contain w-[200px] h-[200px] bg-white p-5 ml-5 rounded-lg'/>
+                <img src={product.image[0].src} className='object-contain w-[200px] h-[200px] bg-white p-5 ml-5 rounded-lg'/>
                 <div className='flex flex-col gap-3 w-full'>
                     <h1 className='text-xl font-bold'>{product.name}</h1>
                     <h1 className='text-normal font-bold'>{product.category.name}</h1>

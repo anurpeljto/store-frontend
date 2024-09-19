@@ -27,7 +27,6 @@ const Profile = () => {
     if (!user) {
         return <div>Loading...</div>;
     }
-    console.log(user);
   return (
     <div className='sm:w-1/2 w-full h-full bg-cream rounded-lg sm:p-5 p-2 flex flex-col justify-start items-start gap-5'>
         <div className='flex flex-col justify-between w-full sm:px-2 px-5 gap-2'>

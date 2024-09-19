@@ -11,7 +11,6 @@ const fetchProduct = async (id) => {
         method: 'get',
         url: `http://localhost:3000/api/v1/products/${id}`
     });
-    console.log(response.data.product)
     return response.data.product;
 }
 
