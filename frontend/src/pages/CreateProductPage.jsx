@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 const fetchCategories = async(navigate) => {
   try {
     const data = await axios({
-      url: 'http://localhost:3000/api/v1/category',
+      url: 'http://full-store.onrender.com/api/v1/category',
       method:'get',
       withCredentials: true
     });

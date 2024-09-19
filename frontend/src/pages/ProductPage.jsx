@@ -9,7 +9,7 @@ import Details from '../components/Product/Details/Details';
 const fetchProduct = async (id) => {
     const response = await axios({
         method: 'get',
-        url: `http://localhost:3000/api/v1/products/${id}`
+        url: `http://full-store.onrender.com/api/v1/products/${id}`
     });
     return response.data.product;
 }

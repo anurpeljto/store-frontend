@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 
 const fetchProducts = async (category, page, search) => {
   try {
-    let url = `http://localhost:3000/api/v1/products?`;
+    let url = `http://full-store.onrender.com/api/v1/products?`;
 
     if (search) {
       url += `search=${search}&`;

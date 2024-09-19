@@ -5,7 +5,7 @@ import SubmitProfile from './SubmitProfile';
 
 const fetchUserDetails = async() => {
     const request = await axios({
-        url:'http://localhost:3000/api/v1/auth/get-user',
+        url:'http://full-store.onrender.com/api/v1/auth/get-user',
         method: 'get',
         withCredentials:true
     });
