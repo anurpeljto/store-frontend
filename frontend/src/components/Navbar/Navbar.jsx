@@ -12,11 +12,15 @@ import axios from 'axios'
 
 
 const checkAuth = async(navigate) => {
+  const token = localStorage.getItem('token');
   try {
     const response = await axios({
       url:'https://full-store.onrender.com/api/v1/auth/check-auth',
       method:'get',
-      withCredentials:true
+      withCredentials:true,
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
     });
   
     const {authenticated} = response.data;
