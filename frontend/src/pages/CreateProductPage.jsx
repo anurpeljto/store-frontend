@@ -6,11 +6,15 @@ import { useNavigate } from 'react-router-dom';
 
 
 const fetchCategories = async(navigate) => {
+  const token = localStorage.getItem('token');
   try {
     const data = await axios({
       url: 'https://full-store.onrender.com/api/v1/category',
       method:'get',
-      withCredentials: true
+      withCredentials: true,
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
     });
   
     const results = data.data;

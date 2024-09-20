@@ -18,7 +18,9 @@ const registerFunc = async(email, password, first_name, last_name, navigation) =
             }
         });
 
-        const response = result.data;     
+        const response = result.data;   
+        const token = response.token;
+        localStorage.setItem('token', token);  
         navigation('/');
         return response;
     } catch (error) {

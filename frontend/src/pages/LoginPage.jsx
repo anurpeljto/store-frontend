@@ -12,14 +12,16 @@ const login = async(email, password, navigate) => {
         email: email,
         password: password
       },
-      withCredentials: true
+      withCredentials: true,
     });
 
     const success = request.data.success;
     const name = request.data.first_name;
     localStorage.setItem('first_name', name);
+    const token = request.data.token;
+    localStorage.setItem('token', token);
     if(success) {
-      setTimeout(() => navigate('/profile'), '1000');
+      setTimeout(() => navigate('/profile'), '5000');
     }
   } catch (error) {
     alert(error.response.data.message);

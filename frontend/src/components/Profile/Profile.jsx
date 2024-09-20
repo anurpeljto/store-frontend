@@ -4,10 +4,18 @@ import SubmitProfile from './SubmitProfile';
 
 
 const fetchUserDetails = async() => {
+    const token = localStorage.getItem('token');
+    if(!token) {
+        throw new Error('User is not logged in');
+    }
+
     const request = await axios({
         url:'https://full-store.onrender.com/api/v1/auth/get-user',
         method: 'get',
-        withCredentials:true
+        withCredentials:true,
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
     });
     const user = request.data.user;
     return user;
