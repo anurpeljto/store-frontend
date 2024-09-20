@@ -6,8 +6,6 @@ const Categories = () => {
         <a href='/women' className='text-blackTheme'>Women</a>
         <a href='/men' className='text-blackTheme'>Men</a>
         <a href='/kids' className='text-blackTheme'>Kids</a>
-        <a href='/sports' className='text-blackTheme'>Sports</a>
-        <a href='/brands' className='text-blackTheme'>Brands</a>
         <a href='/create' className='text-blackTheme font-bold'>Create new product</a>
     </div>
   )

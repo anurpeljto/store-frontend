@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import SubmitProfile from './SubmitProfile';
+import { ReactTyped } from 'react-typed';
 
 
 const fetchUserDetails = async() => {
@@ -33,7 +34,7 @@ const Profile = () => {
     }, []);
 
     if (!user) {
-        return <div>Loading...</div>;
+        return <div>Loading<ReactTyped strings={['...']} loop typeSpeed={100} backSpeed={50}/> </div>;
     }
   return (
     <div className='sm:w-1/2 w-full h-full bg-cream rounded-lg sm:p-5 p-2 flex flex-col justify-start items-start gap-5'>

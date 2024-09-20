@@ -4,6 +4,7 @@ import Product from '../components/Product/Product';
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { useSelector } from 'react-redux';
+import { ReactTyped } from 'react-typed';
 
 const fetchProducts = async (category, page, search) => {
   try {
@@ -79,7 +80,7 @@ const HomePage = ({category}) => {
   } else {
     return (
       <div className='w-full h-full py-10 sm:px-0 px-5 sm:grid flex flex-col sm:gap-16 gap-5 grid-cols-4'>
-          <span>Loading products</span>
+          <span>Loading products<ReactTyped strings={'...'} loop typeSpeed={100} backSpeed={50}/></span>
   
           <div className='col-span-4 flex items-center justify-center gap-5'>
             <IoIosArrowRoundBack onClick={handleDecreasePage} className='w-8 h-8 cursor-pointer'/>

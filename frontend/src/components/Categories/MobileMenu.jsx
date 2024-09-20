@@ -9,9 +9,11 @@ const MobileMenu = ({isVisible}) => {
         <hr className='w-full border-grayTheme'/>
         <a href='/kids' className='text-white'>Kids</a>
         <hr className='w-full border-grayTheme'/>
-        <a href='/sports' className='text-white'>Sports</a>
+        <a href='/profile' className='text-white'>Profile</a>
         <hr className='w-full border-grayTheme'/>
-        <a href='/brands' className='text-white'>Brands</a>
+        <a href='/cart' className='text-white'>Cart</a>
+        <hr className='w-full border-grayTheme'/>
+        <a href='/create' className='text-white font-bold'>Create new product</a>
     </div>
   )
 }

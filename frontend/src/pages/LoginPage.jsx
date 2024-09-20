@@ -21,7 +21,7 @@ const login = async(email, password, navigate) => {
     const token = request.data.token;
     localStorage.setItem('token', token);
     if(success) {
-      setTimeout(() => navigate('/profile'), '5000');
+      navigate('/profile')
     }
   } catch (error) {
     alert(error.response.data.message);
